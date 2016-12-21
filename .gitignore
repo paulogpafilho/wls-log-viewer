@@ -90,3 +90,7 @@ local.properties
 .recommenders/
 Contact GitHub 
 /target/
+
+# VSCode IDE Files  #
+######################
+.vscode/
