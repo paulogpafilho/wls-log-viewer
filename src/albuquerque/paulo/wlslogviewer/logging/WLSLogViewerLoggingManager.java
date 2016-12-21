@@ -26,8 +26,8 @@ public class WLSLogViewerLoggingManager {
         try {
 
             // get the Parent Logger and set its level
-            Logger parentLogger = Logger.getLogger(AppPreferences.getProperty("wlslogviewer.parent.logger"));
-            parentLogger.setLevel(Level.parse(AppPreferences.getProperty("wlslogviewer.parent.log.level")));
+            Logger parentLogger = Logger.getLogger("albuquerque.paulo.wlslogviewer");
+            parentLogger.setLevel(Level.parse(AppPreferences.getProperty("wlslogviewer.log.level")));
 
             // create a File formatter
             logTextFormatter = new LogFileFormatter();
@@ -40,37 +40,6 @@ public class WLSLogViewerLoggingManager {
             parentLogger.addHandler(logFileOutput);
 
             parentLogger.config("WLSLogViewer Logger Started, all messages are going to be logged to this file");
-
-            // get the Trombone application loggers and set their levels
-            /*
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.restservices.logger"))).setLevel(Level.parse(
-             * TromboneConfig.getString("trombone.restservices.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.business.logger"))).setLevel(Level.parse(TromboneConfig
-             * .getString("trombone.business.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.config.logger"))).setLevel(Level.parse(TromboneConfig.
-             * getString("trombone.config.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString("trombone.dao.logger")
-             * )).setLevel(Level.parse(TromboneConfig.getString(
-             * "trombone.dao.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.entity.logger"))).setLevel(Level.parse(TromboneConfig.
-             * getString("trombone.entity.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.restservices.logger"))).setLevel(Level.parse(
-             * TromboneConfig.getString("trombone.restservices.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.security.realm.logger"))).setLevel(Level.parse(
-             * TromboneConfig.getString("trombone.security.realm.logger.level"))
-             * ); (Logger.getLogger(TromboneConfig.getString(
-             * "trombone.services.logger"))).setLevel(Level.parse(TromboneConfig
-             * .getString("trombone.services.logger.level")));
-             * (Logger.getLogger(TromboneConfig.getString("trombone.util.logger"
-             * ))).setLevel(Level.parse(TromboneConfig.getString(
-             * "trombone.util.logger.level")));
-             */
 
         } catch (SecurityException e) {
             e.printStackTrace();

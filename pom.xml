@@ -18,6 +18,47 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+              <archive>
+                <manifest>
+                  <mainClass>albuquerque.paulo.wlslogviewer.ui.OpenLogWindow</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>albuquerque.paulo.wlslogviewer.ui.OpenLogWindow</mainClass>
+          <arguments>
+            <argument>foo</argument>
+            <argument>bar</argument>
+          </arguments>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <dependencies>
@@ -25,11 +66,13 @@
       <groupId>com.jgoodies</groupId>
       <artifactId>forms</artifactId>
       <version>1.3.0</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.miglayout</groupId>
       <artifactId>com.miglayout</artifactId>
       <version>3.7.4</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

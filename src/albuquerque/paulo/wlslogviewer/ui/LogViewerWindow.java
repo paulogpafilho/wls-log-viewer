@@ -43,8 +43,8 @@ import albuquerque.paulo.wlslogviewer.parser.Parser;
  * 
  * @author PAPEREIR
  * 
- *         Main Log Viewer Window. Consists of 3 sections: Buttons, Table with
- *         log lines and Details Panel.
+ * Main Log Viewer Window. Consists of 3 sections: Buttons, Table with
+ * log lines and Details Panel.
  *
  */
 public class LogViewerWindow implements TableColumnModelListener, ClipboardOwner {

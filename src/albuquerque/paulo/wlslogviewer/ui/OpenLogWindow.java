@@ -17,41 +17,46 @@ import albuquerque.paulo.wlslogviewer.configuration.AppPreferences;
 import albuquerque.paulo.wlslogviewer.logging.WLSLogViewerLoggingManager;
 
 /**
- * 
+ * The entry point for WLS Log Viewer
  * @author Paulo Albuquerque
- * @email paulogpafilho@gmail.com
- * 
- *        File Chooser UI to select Log File to open
+ * File Chooser UI to select Log File to open
  *
  */
 public class OpenLogWindow extends JFrame {
 
     private static final long serialVersionUID = 1L;
-
-    private static final Logger log = Logger.getLogger(AppPreferences.getProperty("wlslogviewer.parent.logger"));
-
+    //this logger name
+    private static final Logger log = Logger.getLogger("albuquerque.paulo.wlslogviewer");
+    //Content Pane
     private JPanel jContentPane = null;
+    //File name Text Field
     private JTextField jTextField = null;
+    //Choose file button
     private JButton jButton = null;
+    //Open file button
     private JButton jButton1 = null;
+    //File Chooser
     private JFileChooser jFileChooser = null;
-
+    //Window
     private static OpenLogWindow openLogWindow;
-
+    //Reference to the log viewer window
     private LogViewerWindow main;
 
-    public LogViewerWindow getMain() {
-        return main;
-    }
+    // public LogViewerWindow getMain() {
+    //     return main;
+    // }
 
+    //Sets the reference to the Log Viewer Window
     public void setMain(LogViewerWindow main) {
         this.main = main;
     }
 
+    //The main method. entry point for the application
     public static void main(String[] args) {
         WLSLogViewerLoggingManager.setUp();
         if (openLogWindow == null) {
             openLogWindow = new OpenLogWindow();
+            openLogWindow.setResizable(false);
             openLogWindow.setVisible(true);
         }
     }
